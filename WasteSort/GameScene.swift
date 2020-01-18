@@ -84,7 +84,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let trashGuideDown = SKSpriteNode(color: .blue, size: CGSize(width: 15, height: 300))
 
     //Setup the score
-    var scoreLabel: SKLabelNode!
     var score = 0 {
         didSet {
             viewController.scoreLabel.text = "Score: \(score)"
@@ -92,7 +91,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     //Setup lives
-    var livesImages = [SKSpriteNode]()
     var lives = 3
     let outerBoundary: CGFloat = 400.0 // a live is lost if an item falls past this point
     
@@ -503,9 +501,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         
+        self.isPaused = true
         gameEnded = true
-        physicsWorld.speed = 0
-        isUserInteractionEnabled = false
+        //physicsWorld.speed = 0
+        //isUserInteractionEnabled = false
         
     }
   
