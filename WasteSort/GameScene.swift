@@ -29,6 +29,8 @@ enum SequenceType: CaseIterable { // what does this do?? from bryan's code
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    weak var viewController: GameViewController!
+    
     // Setup nodes for waste bins
     let trashBottom = SKSpriteNode(imageNamed: "trashBottom")
     let electricBottom = SKSpriteNode(imageNamed: "electricBottom")
@@ -85,7 +87,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var scoreLabel: SKLabelNode!
     var score = 0 {
         didSet {
-            scoreLabel.text = "Score: \(score)"
+            viewController.scoreLabel.text = "Score: \(score)"
         }
     }
     
@@ -299,7 +301,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         item.physicsBody!.collisionBitMask = PhysicsCategory.destroy
         item.physicsBody?.restitution = 0.4
         
-        
+        // TODO: change to dictionary will allow item.name = trashMap[itemType]
         // label the item that has been created
         if(compostList.contains(itemType)) {
             item.name = "compost"

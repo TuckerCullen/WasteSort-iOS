@@ -11,7 +11,14 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-
+    
+    var currentGame: GameScene!
+    
+    @IBOutlet weak var rightX: UIImageView!
+    @IBOutlet weak var centerX: UIImageView!
+    @IBOutlet weak var leftX: UIImageView!
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +30,8 @@ class GameViewController: UIViewController {
         scene.scaleMode = .aspectFill
         skView.presentScene(scene) // displays (and starts)
         
-        
+        currentGame = scene as GameScene
+        currentGame.viewController = self
     }
 
     override var prefersStatusBarHidden: Bool {
