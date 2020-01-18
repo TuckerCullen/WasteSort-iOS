@@ -490,7 +490,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.text = "Score: 0"
         scoreLabel.horizontalAlignmentMode = .left
         scoreLabel.fontSize = 80
-        scoreLabel.position = CGPoint(x: 70, y: size.height-100)
+        scoreLabel.position = CGPoint(x: 100, y: size.height-150)
         
         addChild(scoreLabel)
         
@@ -501,7 +501,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func createLives() {
         for i in 0 ..< 3 {
             let spriteNode = SKSpriteNode(imageNamed: "sliceLife")
-            spriteNode.position = CGPoint(x: size.width - CGFloat(50 + (i * 70)), y: size.height - 100)
+            spriteNode.position = CGPoint(x: size.width - CGFloat(130 + (i * 70)), y: size.height - 130)
             addChild(spriteNode)
             
             livesImages.append(spriteNode)
@@ -534,7 +534,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func createMenuButton() {
         menuLabel = SKLabelNode(fontNamed: "Chalkduster")
         menuLabel.text = "Menu"
-        menuLabel.position = CGPoint(x: 70, y: size.height-180)
+        menuLabel.position = CGPoint(x: 100, y: size.height-200)
         menuLabel.horizontalAlignmentMode = .left
         menuLabel.fontSize = 50
         addChild(menuLabel)
