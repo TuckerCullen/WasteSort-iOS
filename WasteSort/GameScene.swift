@@ -29,6 +29,8 @@ enum SequenceType: CaseIterable { // what does this do?? from bryan's code
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    weak var viewController: GameViewController!
+    
     // Setup nodes for waste bins
     let trashBottom = SKSpriteNode(imageNamed: "trashBottom")
     let electricBottom = SKSpriteNode(imageNamed: "electricBottom")
@@ -82,29 +84,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let trashGuideDown = SKSpriteNode(color: .blue, size: CGSize(width: 15, height: 300))
 
     //Setup the score
-    var scoreLabel: SKLabelNode!
     var score = 0 {
         didSet {
-            scoreLabel.text = "Score: \(score)"
+            viewController.scoreLabel.text = "Score: \(score)"
         }
     }
     
     //Setup lives
-    var livesImages = [SKSpriteNode]()
     var lives = 3
     let outerBoundary: CGFloat = 400.0 // a live is lost if an item falls past this point
     
-    //Setup menu
-    var menuLabel: SKLabelNode!
-    var menuUp: Bool = false {
-        didSet {
-            if menuUp {
-                menuLabel.text = "Done"
-            } else {
-                menuLabel.text = "Menu"
-            }
-        }
-    }
     
 
     override func didMove(to view: SKView) {
@@ -112,10 +101,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         setUpPhysics()
         setBackground()
         placeBins()
-        createScore()
-        createLives()
         setupLines()
-        createMenuButton()
         
         //Background music
         let backgroundSound = SKAudioNode(fileNamed: "mainmusic.mp3") 
@@ -299,7 +285,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         item.physicsBody!.collisionBitMask = PhysicsCategory.destroy
         item.physicsBody?.restitution = 0.4
         
-        
+        // TODO: change to dictionary will allow item.name = trashMap[itemType]
         // label the item that has been created
         if(compostList.contains(itemType)) {
             item.name = "compost"
@@ -322,6 +308,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let fireParticles = SKEmitterNode(fileNamed: "FireParticles") {
             fireParticles.position = item.position
             addChild(fireParticles)
+            fireParticles.run(
+                SKAction.sequence([
+                    SKAction.wait(forDuration: 2.0),
+                    SKAction.removeFromParent()
+                    ])
+                )
         }
         item.removeFromParent()
     }
@@ -485,60 +477,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func createScore() {
-        scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
-        scoreLabel.text = "Score: 0"
-        scoreLabel.horizontalAlignmentMode = .left
-        scoreLabel.fontSize = 80
-        scoreLabel.position = CGPoint(x: 100, y: size.height-150)
-        
-        addChild(scoreLabel)
-        
-        
-        
-    }
-    
-    func createLives() {
-        for i in 0 ..< 3 {
-            let spriteNode = SKSpriteNode(imageNamed: "sliceLife")
-            spriteNode.position = CGPoint(x: size.width - CGFloat(130 + (i * 70)), y: size.height - 130)
-            addChild(spriteNode)
-            
-            livesImages.append(spriteNode)
-        }
-    }
-    
     func subtractLife() {
         lives -= 1
         
         
-        var life: SKSpriteNode
+        var life: UIImageView
         
         if lives == 2 {
-            life = livesImages[0]
+            life = viewController.rightX
         } else if lives == 1 {
-            life = livesImages[1]
+            life = viewController.centerX
         } else {
-            life = livesImages[2]
+            life = viewController.leftX
             endGame()
         }
-        
-        life.texture = SKTexture(imageNamed: "sliceLifeGone")
-        
-        life.xScale = 1.3
-        life.yScale = 1.3
-        life.run(SKAction.scale(to: 1, duration:0.1))
+        life.image = UIImage(named: "sliceLifeGone")
     }
-    
-    
-    func createMenuButton() {
-        menuLabel = SKLabelNode(fontNamed: "Chalkduster")
-        menuLabel.text = "Menu"
-        menuLabel.position = CGPoint(x: 100, y: size.height-200)
-        menuLabel.horizontalAlignmentMode = .left
-        menuLabel.fontSize = 50
-        addChild(menuLabel)
-    }
+
     
     func endGame() {
         
@@ -546,9 +501,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         
+        self.isPaused = true
         gameEnded = true
-        physicsWorld.speed = 0
-        isUserInteractionEnabled = false
+        //physicsWorld.speed = 0
+        //isUserInteractionEnabled = false
         
     }
   
