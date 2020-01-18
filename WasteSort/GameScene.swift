@@ -114,7 +114,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         setUpPhysics()
         setBackground()
         placeBins()
-        createScore()
         setupLines()
         createMenuButton()
         
@@ -489,19 +488,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             nextSequenceQueued = true
         }
-        
-    }
-    
-    func createScore() {
-        scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
-        scoreLabel.text = "Score: 0"
-        scoreLabel.horizontalAlignmentMode = .left
-        scoreLabel.fontSize = 80
-        scoreLabel.position = CGPoint(x: 100, y: size.height-150)
-        
-        addChild(scoreLabel)
-        
-        
         
     }
     
