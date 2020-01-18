@@ -15,13 +15,14 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scene = GameScene(size: CGSize(width: 1080, height: 1920))
+        let scene = GameScene(size: CGSize(width: 1080, height: 1920)) //creates a GameScene.swift, the actually sorting game
         let skView = self.view as! SKView
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .aspectFill
-        skView.presentScene(scene)
+        skView.presentScene(scene) // displays (and starts)
+        
         
     }
 

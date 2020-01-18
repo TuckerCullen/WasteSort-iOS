@@ -16,6 +16,7 @@
 		2218EE8F23032940004E8E79 /* WasteSortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218EE8E23032940004E8E79 /* WasteSortTests.swift */; };
 		2218EE9A23032940004E8E79 /* WasteSortUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218EE9923032940004E8E79 /* WasteSortUITests.swift */; };
 		226ACC6F230728D400DE9A28 /* FireParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 226ACC6E230728D400DE9A28 /* FireParticles.sks */; };
+		D8FABF8423D2B3F70066CD93 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FABF8323D2B3F70066CD93 /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		2218EE9923032940004E8E79 /* WasteSortUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WasteSortUITests.swift; sourceTree = "<group>"; };
 		2218EE9B23032941004E8E79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		226ACC6E230728D400DE9A28 /* FireParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireParticles.sks; sourceTree = "<group>"; };
+		D8FABF8323D2B3F70066CD93 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				2218EE7D2303293E004E8E79 /* Main.storyboard */,
 				2218EE8023032940004E8E79 /* Assets.xcassets */,
 				226ACC6E230728D400DE9A28 /* FireParticles.sks */,
+				D8FABF8323D2B3F70066CD93 /* MenuViewController.swift */,
 				2218EE8223032940004E8E79 /* LaunchScreen.storyboard */,
 				2218EE8523032940004E8E79 /* Info.plist */,
 			);
@@ -266,6 +269,7 @@
 				2218EE7A2303293E004E8E79 /* GameScene.swift in Sources */,
 				2218EE7C2303293E004E8E79 /* GameViewController.swift in Sources */,
 				2218EE742303293E004E8E79 /* AppDelegate.swift in Sources */,
+				D8FABF8423D2B3F70066CD93 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
