@@ -322,6 +322,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let fireParticles = SKEmitterNode(fileNamed: "FireParticles") {
             fireParticles.position = item.position
             addChild(fireParticles)
+            fireParticles.run(
+                SKAction.sequence([
+                    SKAction.wait(forDuration: 2.0),
+                    SKAction.removeFromParent()
+                    ])
+                )
         }
         item.removeFromParent()
     }
