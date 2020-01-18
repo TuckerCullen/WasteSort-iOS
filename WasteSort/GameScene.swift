@@ -96,17 +96,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lives = 3
     let outerBoundary: CGFloat = 400.0 // a live is lost if an item falls past this point
     
-    //Setup menu
-    var menuLabel: SKLabelNode!
-    var menuUp: Bool = false {
-        didSet {
-            if menuUp {
-                menuLabel.text = "Done"
-            } else {
-                menuLabel.text = "Menu"
-            }
-        }
-    }
     
 
     override func didMove(to view: SKView) {
@@ -115,7 +104,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         setBackground()
         placeBins()
         setupLines()
-        createMenuButton()
         
         //Background music
         let backgroundSound = SKAudioNode(fileNamed: "mainmusic.mp3") 
@@ -507,16 +495,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         life.image = UIImage(named: "sliceLifeGone")
     }
-    
-    
-    func createMenuButton() {
-        menuLabel = SKLabelNode(fontNamed: "Chalkduster")
-        menuLabel.text = "Menu"
-        menuLabel.position = CGPoint(x: 100, y: size.height-200)
-        menuLabel.horizontalAlignmentMode = .left
-        menuLabel.fontSize = 50
-        addChild(menuLabel)
-    }
+
     
     func endGame() {
         
