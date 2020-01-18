@@ -106,10 +106,6 @@
                                     <segue destination="BV1-FR-VrT" kind="show" id="Bmq-0I-k3r"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="eye" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="drv-Uk-Vts">
-                                <rect key="frame" x="53" y="63.5" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -125,7 +121,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="eye" catalog="system" width="64" height="40"/>
         <image name="sliceLife" width="64" height="64"/>
         <image name="woodBackground" width="1200" height="804"/>
     </resources>
