@@ -10,9 +10,9 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="WasteSort" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="BV1-FR-VrT" customClass="GameViewController" customModule="WasteSort" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cSg-QW-NZW"/>
@@ -21,7 +21,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="488" y="138"/>
+            <point key="canvasLocation" x="229" y="138"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="Xp6-KK-oDO">
@@ -37,7 +37,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="41"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" id="i3Y-Nu-SSM"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="Bmq-0I-k3r"/>
                                 </connections>
                             </button>
                         </subviews>
