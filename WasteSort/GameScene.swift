@@ -115,7 +115,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         setBackground()
         placeBins()
         createScore()
-        createLives()
         setupLines()
         createMenuButton()
         
@@ -506,36 +505,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func createLives() {
-        for i in 0 ..< 3 {
-            let spriteNode = SKSpriteNode(imageNamed: "sliceLife")
-            spriteNode.position = CGPoint(x: size.width - CGFloat(130 + (i * 70)), y: size.height - 130)
-            addChild(spriteNode)
-            
-            livesImages.append(spriteNode)
-        }
-    }
-    
     func subtractLife() {
         lives -= 1
         
         
-        var life: SKSpriteNode
+        var life: UIImageView
         
         if lives == 2 {
-            life = livesImages[0]
+            life = viewController.rightX
         } else if lives == 1 {
-            life = livesImages[1]
+            life = viewController.centerX
         } else {
-            life = livesImages[2]
+            life = viewController.leftX
             endGame()
         }
-        
-        life.texture = SKTexture(imageNamed: "sliceLifeGone")
-        
-        life.xScale = 1.3
-        life.yScale = 1.3
-        life.run(SKAction.scale(to: 1, duration:0.1))
+        life.image = UIImage(named: "sliceLifeGone")
     }
     
     
